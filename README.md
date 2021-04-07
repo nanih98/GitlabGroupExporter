@@ -67,7 +67,7 @@ python3 main.py -p /tmp/gitlab/ -l INFO
 ![Config example](/img/config-example.png)
 
 # Result
-![Result]()
+![Result](/img/result-example.png)
 
 
 Then, delete the directory if you no longer need it.
