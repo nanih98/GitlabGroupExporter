@@ -57,7 +57,9 @@ def get_old_subgroups(oldGroupId):
     subgroups = group.subgroups.list()
     
     for subgroup in subgroups:
-        old_projects_ids[subgroup.name]= subgroup.id
+        slash = subgroup.full_path.find('/')
+        length = len(subgroup.full_path)
+        old_projects_ids[subgroup.full_path[slash:length]] = subgroup.id
         get_old_subgroups(subgroup.id)
 
 
@@ -69,7 +71,9 @@ def get_new_subgroups(newGroupId):
     subgroups = group.subgroups.list()
     
     for subgroup in subgroups:
-        new_projects_ids[subgroup.name]= subgroup.id
+        slash = subgroup.full_path.find('/')
+        length = len(subgroup.full_path)
+        new_projects_ids[subgroup.full_path[slash:length]] = subgroup.id
         get_new_subgroups(subgroup.id)
 
 def migrate_projects(path):

@@ -22,7 +22,7 @@ def group_export_import(groupId,path):
     export = group.exports.create()
     
     logging.info("🔧 - Wait for the export to finish")
-    time.sleep(120)
+    time.sleep(60)
 
     ## Download the result
     with open(f'{path}/{group.name}.tar.gz', 'wb') as f:
