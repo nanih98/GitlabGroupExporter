@@ -46,7 +46,7 @@ def validate_group_exists():
 
 
 def validate_path(path):
-    if path[-1] == '/':
+    if path[-1] != '/':
        raise InvalidPath(path)
    
 def validate_empty_dir(path):

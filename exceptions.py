@@ -14,7 +14,7 @@ class GroupExists(Exception):
 class InvalidPath(Exception):
     def __init__(self, path):
         self.path = path
-        self.message = f"Path {self.path} can't end with '/' (slash)"
+        self.message = f"Path {self.path} must end with '/' (slash)"
         super().__init__(self.message)
 
 class EmptyDirectory(Exception):

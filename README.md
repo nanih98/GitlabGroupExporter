@@ -40,4 +40,10 @@ NEW_GROUP_NAME: MyNewImportedGroup
  * **OLD_GROUP_ID**: Group Id from the group that you want to export (on old gitlab instance)
  * **NEW_GROUP_NAME**: New group name that you will create (import) over that new gitlab instance
 
+## Example command
 
+```
+mkdir /tmp/gitlab 
+python3 main.py -p /tmp/gitlab/ -l INFO
+```
+**Note:** Directory must be created and need to be empty. When you set the directory on the command, need to end with slash '/'
