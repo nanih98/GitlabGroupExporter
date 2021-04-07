@@ -37,7 +37,7 @@ NEW_GROUP_NAME: MyNewImportedGroup
  * **OLD_TOKEN**: Gitlab token with API access from old gitlab instance
  * **NEW_GITLAB_URL**: Gitlab url where you want to import that new group
  * **NEW_TOKEN**: Gitlab token with API access from new gitlab instance
- * **OLD_GROUP_ID**: Group Id from the group what you want to export (on old gitlab instance)
+ * **OLD_GROUP_ID**: Group Id from the group that you want to export (on old gitlab instance)
  * **NEW_GROUP_NAME**: New group name that you will create (import) over that new gitlab instance
 
 
