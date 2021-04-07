@@ -4,7 +4,8 @@ Export group with all projects and subgroups
 # Requirements  
 
 * python >=3.6
-* admin rights over gitlab servers
+* admin rights over gitlab (owner role to export groups and projects, admin rights to create groups, projects...)
+* API token on both Gitlab (asigned to your gitlab user)
 
 # Install  
 1. Install requirements
@@ -47,3 +48,14 @@ mkdir /tmp/gitlab
 python3 main.py -p /tmp/gitlab/ -l INFO
 ```
 **Note:** Directory must be created and need to be empty. When you set the directory on the command, need to end with slash '/'
+
+# Examples  
+
+# Group to be exported
+
+![Old group](/img/old_gitlab.png)
+
+# New group imported from old gitlab instance
+
+![New group](/img/new_gitlab.png)
+
