@@ -51,11 +51,11 @@ python3 main.py -p /tmp/gitlab/ -l INFO
 
 # Examples  
 
-# Group to be exported
+# Group to be exported  
 
 ![Old group](/img/old_gitlab.png)
 
-# New group imported from old gitlab instance
+# New group imported from old gitlab instance  
 
 ![New group](/img/new_gitlab.png)
 
