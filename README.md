@@ -1,21 +1,21 @@
-# (BETA) GitlabGroupExporter
+# (BETA) GitlabGroupExporter 
 Export group with all projects and subgroups
 
-# Requirements
+# Requirements  
 
 * python >=3.6
 * admin rights over gitlab servers
 
-# Install
+# Install  
 1. Install requirements
 
 ```sh
 pip3 install -r requirements.txt
 ```
 
-# Usage
+# Usage  
 
-## Configuration file (config.yml)
+## Configuration file (config.yml)
 
 Set your configuration with config.yml (on root path)
 
@@ -40,7 +40,7 @@ NEW_GROUP_NAME: MyNewImportedGroup
  * **OLD_GROUP_ID**: Group Id from the group that you want to export (on old gitlab instance)
  * **NEW_GROUP_NAME**: New group name that you will create (import) over that new gitlab instance
 
-## Example command
+## Example command  
 
 ```
 mkdir /tmp/gitlab 

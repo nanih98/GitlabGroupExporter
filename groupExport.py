@@ -2,10 +2,9 @@ import gitlab
 import time
 import logging
 import urllib3
-urllib3.disable_warnings()
 from credentials import old_config_credentials, new_config_credentials
 from config import get_config
-from validations import group_exists
+urllib3.disable_warnings()
 
 # Set credentials to Gitlabs
 gl_old = old_config_credentials()
@@ -15,11 +14,6 @@ old_url = get_config()['OLD_GITLAB_URL']
 new_url = get_config()['NEW_GITLAB_URL']
 
 def group_export_import(groupId,path):
-    # Check if new group exists
-    logging.info(f"🔧 - Validationg if group exists")
-    group_exists()
-    logging.info(f"🆗 - Group don't exists on new instance. Then, can be created")
-    
     group = gl_old.groups.get(groupId)
     logging.info(f"🔧 - Exporting group {group.name} with Id {groupId} from {old_url}")
     export = group.exports.create()
@@ -36,3 +30,10 @@ def group_export_import(groupId,path):
     with open(f'{path}/{group.name}.tar.gz', 'rb') as f:
         gl_new.groups.import_group(f, path=get_config()["NEW_GROUP_NAME"].lower().replace(" ", "") ,name=get_config()["NEW_GROUP_NAME"])
     logging.info(f"🆗 - Group {group.name} imported correctly in {new_url}")
+
+def get_new_group_id():
+    listGroups = gl_new.groups.list(search=get_config()["NEW_GROUP_NAME"])  
+    for group in listGroups:
+        if group.attributes['parent_id'] is None:
+            if get_config()["NEW_GROUP_NAME"].lower().replace(" ", "") == group.attributes['path']:
+                return group.attributes['id']

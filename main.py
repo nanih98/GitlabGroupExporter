@@ -6,7 +6,7 @@ from groupExport import group_export_import
 from exceptions import IsNotDirectoryError
 from config import get_config
 from cleanup import clean_files
-#from projectsExport import project_export_import
+from projectsExport import migrate_projects
 
 
 def parse_args():
@@ -47,12 +47,12 @@ def main():
     
     validate(args.path_dir)
 
-    # Export
+    # Export group structure
     group_export_import(get_config()["OLD_GROUP_ID"],args.path_dir)
     
-    #logging.info("Exporting projects")
-    #project_export_import(get_config()["OLD_GROUP_ID"],args.path_dir)
-   
+    logging.info("Exporting projects")
+    migrate_projects(args.path_dir)
+    
     # Clean  
     clean_files(args.path_dir)
     

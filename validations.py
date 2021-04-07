@@ -56,14 +56,16 @@ def validate_empty_dir(path):
         raise EmptyDirectory(path)
 
 
-def group_exists():
+def validate_group_exists():
     gl_new = new_config_credentials()
     new_url = get_config()['NEW_GITLAB_URL']
     
+    logging.info(f"🔧 - Validationg if group exists")
     listGroups = gl_new.groups.list(search=get_config()["NEW_GROUP_NAME"])    
     for group in listGroups:
         if group.attributes['parent_id'] is None and get_config()["NEW_GROUP_NAME"].lower().replace(" ", "") == group.attributes['path']:
             raise GroupExists(get_config()["NEW_GROUP_NAME"],new_url)
+    logging.info(f"🆗 - Group don't exists on new instance. Then, can be created")
 
 def validate(path): 
     validate_schema()
