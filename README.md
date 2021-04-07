@@ -59,4 +59,27 @@ python3 main.py -p /tmp/gitlab/ -l INFO
 
 ![New group](/img/new_gitlab.png)
 
-## Demo  
+# Command
+![Command example](/img/command-example.png)
+
+# Config  
+
+![Config example](/img/config-example.png)
+
+# Result
+![Result]()
+
+
+Then, delete the directory if you no longer need it.
+
+```sh
+rmdir /tmp/gitlab
+```
+
+# About code
+
+* This code written in python possibly has many unanticipated improvements. It is not a program designed at a productive level contemplating all the possible errors that may exist.
+
+* It is only a functional program designed to automate.
+
+* As for the python code itself, possible improvements are welcome. I am not a 100% experienced python programmer, but I am having fun. Enjoy :)

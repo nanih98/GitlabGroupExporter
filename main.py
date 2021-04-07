@@ -48,9 +48,10 @@ def main():
     validate(args.path_dir)
 
     # Export group structure
+    logging.info("🔧 - Exporting group structure")
     group_export_import(get_config()["OLD_GROUP_ID"],args.path_dir)
     
-    logging.info("Exporting projects")
+    logging.info("🔧 - Exporting projects")
     migrate_projects(args.path_dir)
     
     # Clean  

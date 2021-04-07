@@ -14,6 +14,9 @@ old_url = get_config()['OLD_GITLAB_URL']
 new_url = get_config()['NEW_GITLAB_URL']
 
 def group_export_import(groupId,path):
+    '''
+    Export group from old gitlab instance and import into the new instance
+    '''
     group = gl_old.groups.get(groupId)
     logging.info(f"🔧 - Exporting group {group.name} with Id {groupId} from {old_url}")
     export = group.exports.create()
@@ -32,6 +35,9 @@ def group_export_import(groupId,path):
     logging.info(f"🆗 - Group {group.name} imported correctly in {new_url}")
 
 def get_new_group_id():
+    '''
+    When we import the group into the new gitlab instance, we retrieve the id of the new created group
+    '''
     listGroups = gl_new.groups.list(search=get_config()["NEW_GROUP_NAME"])  
     for group in listGroups:
         if group.attributes['parent_id'] is None:

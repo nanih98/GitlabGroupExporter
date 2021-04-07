@@ -30,26 +30,18 @@ def validate_config_exists():
     else:
         raise ConfigDontExists
 
-
-def validate_group_exists():
-    # Set credentials to Gitlabs
-    gl_new = new_config_credentials()
-    new_url = get_config()['NEW_GITLAB_URL']
-    
-    logging.info("🔧 - Validating if group to be created exists on new Gitlab instance")
-    listGroups = gl_new.groups.list(search=get_config()["NEW_GROUP_NAME"])    
-    for group in listGroups:
-        if group.attributes['parent_id'] is None:
-            if get_config()["NEW_GROUP_NAME"].lower().replace(" ", "") == group.attributes['path']:
-                raise GroupExists(get_config()["NEW_GROUP_NAME"],new_url)
-        logging.info("🆗 - Group don't exists on new Gitlab instance. Then, will be created")
-
-
 def validate_path(path):
+    '''
+    When we launch the python3 command main.py -p /folder/, the set directory should end with a slash '/'
+    '''
     if path[-1] != '/':
        raise InvalidPath(path)
    
 def validate_empty_dir(path):
+    '''
+    The established directory must be empty since delete operations are performed when the program ends. 
+    Files downloaded from Gitlab will be deleted. As a precaution, if there were other files, they would be deleted.
+    '''
     if not os.listdir(path):
         logging.info("🆗 - Directory is empty")
     else:
@@ -57,6 +49,9 @@ def validate_empty_dir(path):
 
 
 def validate_group_exists():
+    '''
+    Validate that the group name that we put to the imported group does not exist in the new instance
+    '''
     gl_new = new_config_credentials()
     new_url = get_config()['NEW_GITLAB_URL']
     
@@ -72,4 +67,4 @@ def validate(path):
     validate_config_exists()
     validate_path(path)
     validate_empty_dir(path)
-    #validate_group_exists()
+    validate_group_exists()
