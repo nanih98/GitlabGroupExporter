@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Configuration file of this project
+config.yml*
+config.yaml*

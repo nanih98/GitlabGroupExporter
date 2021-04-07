@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": ["NEW_GITLAB_URL", "NEW_TOKEN", "OLD_GITLAB_URL", "OLD_TOKEN"],
+    "title": "gitlab_group_exporter",
+    "properties": {
+        "NEW_GITLAB_URL": {
+            "type": "string",
+            "description": "Gitlab url where group will be imported"
+        },
+        "NEW_TOKEN": {
+            "type": "string",
+            "description": "Gitlab token from new url"
+        },
+        "OLD_GITLAB_URL": {
+            "type": "string",
+            "description": "Gitlab url where group will be exported"
+        },
+        "OLD_TOKEN": {
+            "type": "string",
+            "description": "Gitlab token from old url"
+        },
+        "OLD_GROUP_ID": {
+           "type": "number",
+            "description": "Gitlab group id. Group id that you want to export"
+        },
+        "NEW_GROUP_NAME": {
+            "type": "string",
+            "description": "Gitlab new group name that will be imported/created"
+        }
+    },
+    "additionalProperties": false
+} 
